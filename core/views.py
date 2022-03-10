@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 
 def home(request):
-    return HttpResponse("<h1>Inicio</h1>")
+    return render(request, "core/index.html")
 
 def about(request):
     return HttpResponse("Historia")
