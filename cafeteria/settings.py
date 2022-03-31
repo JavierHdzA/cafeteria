@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'blog',
+    'contact',
     'services.apps.ServicesConfig',
 ]
 
