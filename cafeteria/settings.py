@@ -59,7 +59,7 @@ ROOT_URLCONF = 'cafeteria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['./templates',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,3 +137,6 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '4b39a2e9607eb9'
 EMAIL_HOST_PASSWORD = 'd23a956e34ca4e'
 EMAIL_PORT = '2525'
+
+#Redireccionando al home despues de logearse
+LOGIN_REDIRECT_URL = '/'

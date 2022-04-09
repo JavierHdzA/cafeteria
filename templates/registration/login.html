@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<section class="page-section about-heading">
+<div class="container">
+  <div class="about-heading-content">
+    <div class="row">
+      <div class="col-xl-9 col-lg-10 mx-auto">
+        <div class="bg-faded rounded p-5">
+          <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Inicia sesión en tu cuenta</span>
+              <span class="section-heading-lower">Login</span>
+          </h2>
+          <!--Formulario del login-->
+          {% if form.errors %}
+              <p>Your username and password didn't match. Please try again.</p>
+          {% endif %}
+          
+          {% if next %}
+              {% if user.is_authenticated %}
+              <p>Your account doesn't have access to this page. To proceed,
+              please login with an account that has access.</p>
+              {% else %}
+              <p>Please login to see this page.</p>
+              {% endif %}
+          {% endif %}
+          
+          <form method="post" action="{% url 'login' %}">
+              {% csrf_token %}
+          
+              <div class="form-group">
+                  <label>Nombre *</label>
+                  <div class="input-group">
+                      {{form.username}}
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label>Contraseña *</label>
+                  <div class="input-group">
+                      {{form.password}}
+                  </div>
+                  <div>
+                      <input type="submit" value="login" />
+                      <input type="hidden" name="next" value="{{ next }}" />
+                    </div>          
+              </div>
+          </form>
+              {# Assumes you setup the password_reset view in your URLconf #}
+              <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}
+</form>

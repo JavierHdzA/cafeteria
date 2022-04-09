@@ -1,0 +1,30 @@
+
+
+
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<section class="page-section about-heading">
+<div class="container">
+  <div class="about-heading-content">
+    <div class="row">
+      <div class="col-xl-9 col-lg-10 mx-auto">
+        <div class="bg-faded rounded p-5">
+          <h2 class="section-heading mb-4">
+              <span class="section-heading-lower">Has cerrado sesión</span>
+          </h2>
+          <!--Formulario del login-->
+        <a href="{% url 'login'%}">Click here to login again.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}
+</form>
